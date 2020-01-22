@@ -94,11 +94,9 @@ function draw() {
   textSize(20);
   text("kMax = " + (max(0, nMax-1)), width / 2 + 200, height-30);
   text("dt = " + dt, width / 2 + 200, height-70);
-  if (input.length == 0 || isDrawing) {
-    textSize(15);
-    textAlign(CENTER);
-    text("Start/stop drawing by pressing enter\nStart/stop animation with Space", width / 2, 0+30);
-  }
+  textSize(15);
+  textAlign(CENTER);
+  text("Start/stop drawing by pressing enter\nStart/stop animation with Space", width / 2, 0+30);
 
   // motion
   if (isRunning){drawingOffset = drawingOffset + dt;}
