@@ -4,7 +4,8 @@ This project was created using the p5.js library.
 It should work on any browser (simply by accessing the `index.html` file) but looks best on Firefox.
 
 ## Example
-![Screencapture](https://media.giphy.com/media/cO9MHPvp8tlpNEmDHe/giphy.gif
+![Example GIF](https://media.giphy.com/media/cO9MHPvp8tlpNEmDHe/giphy.gif)
+
 
 ## Functionality
 See [Wikipedia on Fourier Series](https://en.wikipedia.org/wiki/Fourier_series).
