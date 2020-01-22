@@ -14,11 +14,11 @@ var drawingOffset = 0;
 var dt = 1;
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(1200, 700);
   background(0, 0, 50);
 
   sliderDt = createSlider(0.01, 2, 1, 0.01);
-  sliderDt.position(width/2-200, windowHeight-80);
+  sliderDt.position(width/2-200, height-80);
   sliderDt.style('width', '400px');
   sliderDt.changed(() => dt = sliderDt.value());
 
@@ -92,8 +92,8 @@ function draw() {
   strokeWeight(0.5);
   textAlign(LEFT);
   textSize(20);
-  text("kMax = " + (max(0, nMax-1)), width / 2 + 200, windowHeight-30);
-  text("dt = " + dt, width / 2 + 200, windowHeight-70);
+  text("kMax = " + (max(0, nMax-1)), width / 2 + 200, height-30);
+  text("dt = " + dt, width / 2 + 200, height-70);
   if (input.length == 0 || isDrawing) {
     textSize(15);
     textAlign(CENTER);
@@ -108,6 +108,12 @@ function draw() {
   }
 }
 
+function reset() {
+  performFourier();
+  fourierDrawing = [];
+  drawingOffset = 0;
+  nMax = sliderNMax.value()
+}
 
 function keyReleased() {
   if (keyCode === 32) { //Space
@@ -123,9 +129,7 @@ function keyReleased() {
     if (isDrawing){
       isDrawing = false;
       refreshNMaxSlider();
-      performFourier();
-      fourierDrawing = [];
-      drawingOffset = 0;
+      reset();
       isRunning = true;
     } else {
       drawingOffset = 0;
@@ -141,9 +145,9 @@ function keyReleased() {
 function refreshNMaxSlider() {
   if (sliderNMax){sliderNMax.remove();}
   sliderNMax = createSlider(1, max(1, input.length), int(input.length/2), 1);
-  sliderNMax.position(width/2-200, windowHeight-40);
+  sliderNMax.position(width/2-200, height-40);
   sliderNMax.style('width', '400px');
-  sliderNMax.changed(() => nMax = sliderNMax.value());
+  sliderNMax.changed(reset);
   nMax = sliderNMax.value();
 }
 
