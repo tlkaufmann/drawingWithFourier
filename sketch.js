@@ -97,7 +97,7 @@ function draw() {
   if (input.length == 0 || isDrawing) {
     textSize(15);
     textAlign(CENTER);
-    text("Start/stop drawing by pressing enter\nStart/stop animation with Space", width / 2, 0+30);
+    text("Draw by pressing left mouse button", width / 2, 0+30);
   }
 
   // motion
@@ -115,30 +115,20 @@ function reset() {
   nMax = sliderNMax.value()
 }
 
-function keyReleased() {
-  if (keyCode === 32) { //Space
-    if (isRunning){
-      isRunning = false;
 
-    } else {
-      isRunning = true;
-      isDrawing = false;
-    }
-  }
-  if (keyCode === 13) { // Enter
-    if (isDrawing){
-      isDrawing = false;
-      refreshNMaxSlider();
-      reset();
-      isRunning = true;
-    } else {
-      drawingOffset = 0;
-      isRunning = false;
-      input = [createVector(mouseX - width/2, mouseY - height/2)];
-      isDrawing = true;
-    }
-  }
-  return false; // prevent any default behavior
+function mousePressed() {
+  drawingOffset = 0;
+  isRunning = false;
+  input = [createVector(mouseX - width/2, mouseY - height/2)];
+  isDrawing = true;
+}
+
+
+function mouseReleased() {
+  isDrawing = false;
+  refreshNMaxSlider();
+  reset();
+  isRunning = true;
 }
 
 
