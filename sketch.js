@@ -50,7 +50,7 @@ function draw() {
     let currentX = width/2 + amplitude[0].x;
     let currentY = height/2 + amplitude[0].y;
     let center = createVector(currentX, currentY);
-    
+
     fill(255, 255, 255, 100);
     noStroke();
     ellipse(currentX, currentY, 10)
@@ -60,11 +60,11 @@ function draw() {
       let k = currentN <= input.length/2 ? currentN : currentN - input.length;
 
       if (abs(amplitude[currentN]) > 5){
-        
+
         let phi = (drawingOffset * k * TWO_PI / input.length) + phase[currentN];
         currentX += amplitude[currentN] * Math.cos(phi);
         currentY += amplitude[currentN] * Math.sin(phi);
-        
+
         drawCircles(center, amplitude[currentN], currentX, currentY);
 
         center.x = currentX;
@@ -115,18 +115,24 @@ function reset() {
 
 
 function mousePressed() {
-  drawingOffset = 0;
-  isRunning = false;
-  input = [createVector(mouseX - width/2, mouseY - height/2)];
-  isDrawing = true;
+  console.log(height-80);
+  if (!((mouseX > width/2-200 || mouseX < width/2+200) && mouseY > height-100)){
+    drawingOffset = 0;
+    isRunning = false;
+    input = [createVector(mouseX - width/2, mouseY - height/2)];
+    isDrawing = true;
+  }
+
 }
 
 
 function mouseReleased() {
-  isDrawing = false;
-  refreshNMaxSlider();
-  reset();
-  isRunning = true;
+  if (!((mouseX > width/2-200 || mouseX < width/2+200) && mouseY > height-100)){
+    isDrawing = false;
+    refreshNMaxSlider();
+    reset();
+    isRunning = true;
+  }
 }
 
 
