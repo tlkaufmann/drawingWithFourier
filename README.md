@@ -1,5 +1,5 @@
 # Drawing user-made drawing with a 2D Fourier series
-**Start the programm here: https://tomkau93.github.io/drawingWithFourier**
+**Start the programm here: https://tlkaufmann.github.io/drawingWithFourier**
 
 User created drawings are recreated using circles of constant rotation utilizing Fourier series.
 This project was created using the [p5.js library](https://p5js.org).
