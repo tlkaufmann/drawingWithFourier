@@ -11,7 +11,7 @@ This project was created using the [p5.js library](https://p5js.org).
 ## Functionality
 See [Wikipedia on Fourier Series](https://en.wikipedia.org/wiki/Fourier_series).
 
-Start/stop to draw a sketch using `Enter`. Start/stop the animation using `Space`.
+Start drawing by pressing left mouse button. Start/stop the animation using `Space`.
 The maximum degree of the Fourier series as well as the playback speed (through the timestep *dt*) can be adjusted using the sliders.
 
 
